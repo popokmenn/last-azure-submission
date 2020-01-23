@@ -14,29 +14,24 @@ if (isset($_POST['submit'])) {
 <html>
 <head>
     <title>Analyze Sample</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-
-    <script language="javascript">
-        document.getElementById('analyze_btn').click(); 
-    </script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
  
 <script type="text/javascript">
     function processImage() {
-        
         var subscriptionKey = "cd4bf6bbc03f4551ac4454522f1d5146";
- 
         var uriBase =
             "https://southeastasia.api.cognitive.microsoft.com/vision/v2.0/analyze";
  
+        // Request parameters.
         var params = {
             "visualFeatures": "Categories,Description,Color",
             "details": "",
             "language": "en",
         };
  
+        // Display the image.
         var sourceImageUrl = document.getElementById("inputImage").value;
         document.querySelector("#sourceImage").src = sourceImageUrl;
  
@@ -74,16 +69,13 @@ if (isset($_POST['submit'])) {
 </script>
  
 <h1>Analyze image:</h1>
-Tekan tombol <strong>Analyze image</strong> untuk memulai proses analisis gambar.
+Enter the URL to an image, then click the <strong>Analyze image</strong> button.
 <br><br>
-URL gambar:
-<input type="text" name="inputImage" id="inputImage"
-    value="<?php echo $url ?>" readonly />
-<button id="analyze_btn" onclick="processImage()">Analyze image</button>
+Image to analyze:
+<input type="text" name="inputImage" id="inputImage" value="http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg" />
+<button onclick="processImage()">Analyze image</button>
+<input type="submit" name="submit" value="Submit" />
 <br><br>
-<script language="javascript">
-document.getElementById('analyze_btn').click(); 
-</script>
 <div id="wrapper" style="width:1020px; display:table;">
     <div id="jsonOutput" style="width:600px; display:table-cell;">
         Response:
