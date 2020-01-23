@@ -72,7 +72,7 @@ if (isset($_POST['submit'])) {
 Enter the URL to an image, then click the <strong>Analyze image</strong> button.
 <br><br>
 Image to analyze:
-<input type="text" name="inputImage" id="inputImage" value="http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg" />
+<input type="text" name="inputImage" id="inputImage" value="<?php echo $url ?>" readonly />
 <button onclick="processImage()">Analyze image</button>
 <input type="submit" name="submit" value="Submit" />
 <br><br>
